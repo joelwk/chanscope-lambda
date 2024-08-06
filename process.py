@@ -65,7 +65,7 @@ def handle_process(event, context):
         data = data.dropna(subset=[p_com])
         data = process_data(data, 'posted_comment', text_clean)
         word_list = []
-        for i, k in f.items():
+        for i, k in board_specific.items():
             if i == _board_:
                 k = k.split(',')
                 word_list.extend(k)

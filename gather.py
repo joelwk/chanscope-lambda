@@ -37,11 +37,11 @@ bucket_name = s3_info['bucket']
 raw_prefix = s3_info['raw_prefix']
 path_padding = s3_info['padding_data']
 
-def safe_to_datetime(column, utc=False):
+def safe_to_datetime(column, format='%Y-%m-%d %H:%M:%S', utc=False):
     if utc:
-        return pd.to_datetime(column, errors='coerce', utc=True).dt.floor('min')
+        return pd.to_datetime(column, format=format, errors='coerce', utc=True).dt.floor('min')
     else:
-        return pd.to_datetime(column, format='%Y-%m-%d %H:%M:%S', errors='coerce').dt.floor('min')
+        return pd.to_datetime(column, format=format, errors='coerce').dt.floor('min')
 
 def handle_gather(event, context):
     s3 = boto3.client('s3')

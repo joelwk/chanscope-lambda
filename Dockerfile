@@ -6,7 +6,7 @@ COPY config.ini contraction_mapping.json gather.py process.py refresh.py main.py
 # Install the Python dependencies from requirements.txt
 RUN python3.11 -m pip install -r requirements.txt
 
-# Download NLTK data and store it in a known directory inside the Docker image
+# Download NLTK data and store it in a known directory inside the Docker image  
 RUN python3.11 -m nltk.downloader -d /nltk_data stopwords
 
 # Ensure the NLTK data directory is in the environment's NLTK_DATA path
