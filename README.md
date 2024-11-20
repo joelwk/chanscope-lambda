@@ -170,3 +170,6 @@ This section specifies the configuration for refreshing S3 data. Similar to the 
 4. **Error Handling**: Validate column existence (e.g., `thread_id`, `posted_comment`) before processing to avoid runtime errors.
 
 This configuration file is structured to handle large-scale forum data processing efficiently and flexibly. Update values as per your project's requirements.
+
+### Usage
+Leverages the [4chan API](https://github.com/4chan/4chan-API/tree/master) to retrieve thread and post data from various boards. The API provides structured access to 4chan's JSON-based endpoints for efficient data retrieval and analysis.
