@@ -1,9 +1,0 @@
-awscli
-boto3
-pandas
-numpy
-configparser
-requests
-bs4
-nltk
-urllib3
