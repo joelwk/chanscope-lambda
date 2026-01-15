@@ -1,10 +1,11 @@
 awscli
 boto3
-pandas
-numpy
+pandas>=2.0.0,<2.3.0
+numpy>=1.24.0,<2.0.0
 configparser
 requests
 bs4
 nltk
 urllib3
 fuzzywuzzy
+python-Levenshtein

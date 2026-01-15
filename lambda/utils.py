@@ -91,7 +91,7 @@ def remove_whitespace(text):
 def supportingcols(data, posted_comment):
     def count_stopwords(text):
         stop = stop_words_()
-        tokenizer = RegexpTokenizer('\w+|\$[\d\.]+|\S+')
+        tokenizer = RegexpTokenizer(r'\w+|\$[\d\.]+|\S+')
         word_tokens = tokenizer.tokenize(text)
         stopwords_x = [w for w in word_tokens if w in stop]
         return len(stopwords_x)

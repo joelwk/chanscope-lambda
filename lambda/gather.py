@@ -77,8 +77,9 @@ def handle_gather(event, context):
         data[time_] = safe_to_datetime(data[time_], utc=True).apply(lambda x: x.strftime("%H:%M:%S") if pd.notnull(x) else None)
         data = remove_omit_ids(data, 'no', omit_ids)
         filename = f'{_board_}_{path_padding}_{current_date}.csv'
-        local_path = os.path.join('/tmp', filename)
-        s3_key = os.path.join(raw_prefix, f"{_board_}_{path_padding}_{current_date}.csv")
+        local_path = f'/tmp/{filename}'
+        # Use forward slashes explicitly for S3 keys (not os.path.join which uses backslashes on Windows)
+        s3_key = f'{raw_prefix}/{_board_}_{path_padding}_{current_date}.csv'
         try:
             data.to_csv(local_path, index=False)
             with open(local_path, "rb") as f:
